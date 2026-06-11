@@ -1,0 +1,175 @@
+:root {
+    color-scheme: dark;
+    --bg: #0b0c0f;
+    --fg: #e6e6e6;
+    --muted: #9aa0a6;
+    --card: #13151a;
+    --brand: #4f8cff;
+    --chip: #2a2f3a;
+    --link: #8ab4f8;
+    --ok: #34d399;
+    --warn: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wrap {
+    max-width: 1000px;
+    margin: auto;
+    padding: 24px;
+}
+
+header {
+    display: grid;
+    gap: 14px;
+    padding: 28px 0;
+}
+
+.title {
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.tagline {
+    color: var(--muted);
+}
+
+.facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--chip);
+    color: inherit;
+    font-size: 14px;
+}
+
+.grid {
+    display: grid;
+    gap: 18px;
+}
+
+.grid.cols-2 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+section {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.kilo {
+    font-weight: 700;
+}
+
+.list-plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-plain li {
+    padding: 10px 0;
+    border-top: 1px solid rgba(128, 128, 128, .18);
+}
+
+.list-plain li:first-child {
+    border-top: none;
+}
+
+.skilltags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.badge {
+    background: var(--chip);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.progress {
+    height: 8px;
+    background: #2b2f36;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: var(--brand);
+    width: 0%;
+}
+
+.ok {
+    color: var(--ok);
+}
+
+.warn {
+    color: var(--warn);
+}
+
+footer {
+    color: var(--muted);
+    text-align: center;
+    padding: 22px 0;
+    font-size: 14px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+}
