@@ -15,7 +15,9 @@
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -26,8 +28,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 .page {
   min-height: 100vh;
@@ -36,15 +44,20 @@ a:hover { text-decoration: underline; }
   justify-content: center;
 }
 
-.wrap { width: 100%; max-width: 680px; }
+.wrap {
+  width: 100%;
+  max-width: 680px;
+}
 
-header { margin-bottom: 34px; }
+header {
+  margin-bottom: 34px;
+}
 
 .path {
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: .1em;
-  color: var(--accent-hue);
+  color: var(--muted);
   margin-bottom: 14px;
 }
 
@@ -74,11 +87,15 @@ header { margin-bottom: 34px; }
 }
 
 .chip.accent {
-  border-color: oklch(0.74 0.12 165 / 0.4);
-  color: var(--accent);
+  border: 1px solid var(--border);
+  color: var(--muted);
 }
 
-.cards { display: flex; flex-direction: column; gap: 16px; }
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .card {
   background: var(--card);
@@ -86,7 +103,11 @@ header { margin-bottom: 34px; }
   padding: 28px 30px;
 }
 
-.skilltags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skilltags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
 .badge {
   font-family: var(--mono);
@@ -98,7 +119,11 @@ header { margin-bottom: 34px; }
   overflow-wrap: anywhere;
 }
 
-.edu { display: flex; flex-direction: column; gap: 16px; }
+.edu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .edu-row {
   display: flex;
@@ -109,16 +134,26 @@ header { margin-bottom: 34px; }
   padding-top: 16px;
 }
 
-.edu-title { font-size: 18px; font-weight: 600; color: var(--fg-strong); }
-.edu-desc { font-size: 15px; line-height: 1.55; color: var(--muted); margin-top: 5px; }
+.edu-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg-strong);
+}
+
+.edu-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: 5px;
+}
 
 .tag {
   font-family: var(--mono);
   font-size: 12px;
   padding: 4px 11px;
   border-radius: 6px;
-  background: oklch(0.74 0.12 165 / 0.16);
-  color: var(--accent);
+  background: var(--pill);
+  color: var(--muted-2);
   white-space: nowrap;
 }
 
@@ -130,8 +165,15 @@ header { margin-bottom: 34px; }
   font-family: var(--mono);
 }
 
-.contact-row { display: flex; justify-content: space-between; gap: 12px; }
-.contact-row .label { color: var(--muted-2); }
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contact-row .label {
+  color: var(--muted-2);
+}
 
 footer {
   margin-top: 32px;
@@ -146,8 +188,10 @@ footer {
 
 .sr-only {
   position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -155,17 +199,51 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .page { padding: 40px 16px; }
-  .card { padding: 22px 20px; }
-  .contact-row { flex-direction: column; gap: 3px; }
-  .edu-row { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .contact { font-size: 14px; overflow-wrap: anywhere; }
-  .badge { font-size: 12px; }
-  .facts { font-size: 12px; }
-  .edu-desc { font-size: 14px; }
-  footer { justify-content: flex-start; gap: 4px 16px; }
+  .page {
+    padding: 40px 16px;
+  }
+
+  .card {
+    padding: 22px 20px;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .edu-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .contact {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+
+  .facts {
+    font-size: 12px;
+  }
+
+  .edu-desc {
+    font-size: 14px;
+  }
+
+  footer {
+    justify-content: flex-start;
+    gap: 4px 16px;
+  }
 }
 
 @media print {
-  body { background: #fff; color: #000; }
+  body {
+    background: #fff;
+    color: #000;
+  }
 }
