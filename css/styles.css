@@ -101,6 +101,26 @@ header {
   padding: 28px 30px;
 }
 
+.skillgroups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skillgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.skillgroup-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
 .skilltags {
   display: flex;
   flex-wrap: wrap;
