@@ -1,14 +1,28 @@
 :root {
+  /* surfaces */
   --bg: oklch(0.16 0.006 200);
   --card: oklch(0.2 0.007 200);
   --pill: oklch(0.25 0.008 200);
-  --fg: oklch(0.91 0.005 200);
+
+  /* text ramp — the whole hierarchy, since the palette is monochrome */
   --fg-strong: oklch(0.97 0.005 200);
-  --muted: oklch(0.66 0.01 200);
-  --muted-2: oklch(0.62 0.01 200);
-  --footer: oklch(0.52 0.008 200);
+  --fg: oklch(0.88 0.005 200);
+  --fg-dim: oklch(0.7 0.009 200);
+  --fg-faint: oklch(0.56 0.009 200);
+
   --line: oklch(1 0 0 / 0.08);
   --border: oklch(1 0 0 / 0.1);
+
+  /* spacing scale */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+
   --sans: 'Hanken Grotesk', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -27,7 +41,7 @@ body {
 }
 
 a {
-  color: var(--muted);
+  color: var(--fg-strong);
   text-decoration: none;
 }
 
@@ -35,9 +49,15 @@ a:hover {
   text-decoration: underline;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--fg-strong);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .page {
-  min-height: 100vh;
-  padding: 64px 24px;
+  min-height: 100dvh;
+  padding: var(--s8) var(--s5);
   display: flex;
   justify-content: center;
 }
@@ -48,112 +68,108 @@ a:hover {
 }
 
 header {
-  margin-bottom: 34px;
+  margin-bottom: var(--s6);
 }
 
 .path {
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: .1em;
-  color: var(--muted);
-  margin-bottom: 14px;
+  color: var(--fg-dim);
+  margin-bottom: var(--s3);
 }
 
 .name {
+  margin: 0;
   font-weight: 700;
-  font-size: clamp(24px, 8vw, 34px);
+  font-size: clamp(28px, 7vw, 38px);
   line-height: 1.03;
   letter-spacing: -.02em;
   color: var(--fg-strong);
-  overflow-wrap: anywhere;
 }
 
 .facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
+  gap: var(--s2);
+  margin-top: var(--s4);
   font-family: var(--mono);
   font-size: 13px;
 }
 
 .chip {
-  padding: 6px 12px;
+  padding: 6px var(--s3);
   border-radius: 6px;
   border: 1px solid var(--border);
-  color: var(--muted);
-}
-
-.chip.accent {
-  border: 1px solid var(--border);
-  color: var(--muted);
+  color: var(--fg-dim);
 }
 
 .cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--s4);
 }
 
 .card {
   background: var(--card);
   border-radius: 12px;
-  padding: 28px 30px;
+  padding: var(--s5);
 }
 
 .skillgroups {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--s5);
 }
 
 .skillgroup {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: var(--s2);
 }
 
+/* labels are uppercase in the HTML, not via text-transform: Safari has
+   mapped Turkish i -> I instead of İ, which would misspell SİSTEM / SERVİS */
 .skillgroup-label {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted-2);
+  letter-spacing: .16em;
+  color: var(--fg-faint);
 }
 
 .skilltags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--s2);
 }
 
 .badge {
   font-family: var(--mono);
   font-size: 13px;
-  padding: 7px 12px;
+  padding: 7px var(--s3);
   border-radius: 6px;
   background: var(--pill);
-  color: oklch(0.86 0.005 200);
+  color: var(--fg);
   overflow-wrap: anywhere;
 }
 
 .edu {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--s4);
 }
 
 .edu-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--s3);
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: var(--s4);
 }
 
 .edu-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--fg-strong);
 }
@@ -161,24 +177,23 @@ header {
 .edu-desc {
   font-size: 15px;
   line-height: 1.55;
-  color: var(--muted);
-  margin-top: 5px;
+  color: var(--fg-dim);
+  margin-top: var(--s1);
 }
 
+/* an annotation on the row, not an object in it */
 .tag {
   font-family: var(--mono);
   font-size: 12px;
-  padding: 4px 11px;
-  border-radius: 6px;
-  background: var(--pill);
-  color: var(--muted-2);
+  letter-spacing: .08em;
+  color: var(--fg-faint);
   white-space: nowrap;
 }
 
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--s3);
   font-size: 15px;
   font-family: var(--mono);
 }
@@ -186,25 +201,25 @@ header {
 .contact-row {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--s3);
 }
 
 .contact-row .label {
-  color: var(--muted-2);
+  color: var(--fg-faint);
 }
 
 footer {
-  margin-top: 32px;
+  margin-top: var(--s6);
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--s2);
   justify-content: space-between;
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--footer);
+  color: var(--fg-faint);
 }
 
-.sr-only {
+.skip {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -216,24 +231,41 @@ footer {
   border: 0;
 }
 
+.skip:focus {
+  position: fixed;
+  top: var(--s3);
+  left: var(--s3);
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  padding: var(--s2) var(--s3);
+  border-radius: 6px;
+  background: var(--pill);
+  color: var(--fg-strong);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
 @media (max-width: 560px) {
   .page {
-    padding: 40px 16px;
+    padding: var(--s6) var(--s4);
   }
 
   .card {
-    padding: 22px 20px;
+    padding: var(--s5) var(--s4);
   }
 
   .contact-row {
     flex-direction: column;
-    gap: 3px;
+    gap: var(--s1);
   }
 
   .edu-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: var(--s2);
   }
 
   .contact {
@@ -255,13 +287,24 @@ footer {
 
   footer {
     justify-content: flex-start;
-    gap: 4px 16px;
+    gap: var(--s1) var(--s4);
   }
 }
 
 @media print {
-  body {
-    background: #fff;
-    color: #000;
+  :root {
+    --bg: #fff;
+    --card: #fff;
+    --pill: #fff;
+    --fg-strong: #000;
+    --fg: #1a1a1a;
+    --fg-dim: #333;
+    --fg-faint: #555;
+    --line: #ddd;
+    --border: #ccc;
+  }
+
+  .card {
+    border: 1px solid #ccc;
   }
 }
