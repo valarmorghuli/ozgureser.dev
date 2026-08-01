@@ -79,13 +79,30 @@ header {
   margin-bottom: var(--s3);
 }
 
+/* the name shares its line with the avatar, so it sets smaller than it would alone */
 .name {
   margin: 0;
   font-weight: 700;
-  font-size: clamp(28px, 7vw, 38px);
+  font-size: clamp(24px, 8vw, 34px);
   line-height: 1.03;
   letter-spacing: -.02em;
   color: var(--fg-strong);
+  overflow-wrap: anywhere;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--border);
 }
 
 .facts {
@@ -255,6 +272,15 @@ footer {
 
   .card {
     padding: var(--s5) var(--s4);
+  }
+
+  .identity {
+    gap: var(--s3);
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
   }
 
   .contact-row {
